@@ -1,0 +1,88 @@
+{% extends "layout.html" %}
+
+{% block content %}
+    <section class="courses-hero bg-dark text-white py-5 mb-5">
+        <div class="container text-center">
+            <h2 class="display-4">My Courses</h2>
+            <p class="lead">Professional development and continuous learning</p>
+        </div>
+    </section>
+
+    <section class="courses-section mb-5">
+        <div class="container">
+            <h2 class="text-center mb-4"><i class="fab fa-udemy text-danger"></i> Udemy Courses</h2>
+            <div class="row">
+                {% for course in udemy_courses %}
+                <div class="col-md-4 mb-4">
+                    <div class="course-card h-100">
+                        <div class="course-header">
+                            <h3 class="course-title">{{ course.title }}</h3>
+                            <p class="course-instructor">{{ course.instructor }}</p>
+                        </div>
+                        <div class="course-content">
+                            <p class="course-description">{{ course.description }}</p>
+                            {% if course.skills %}
+                            <div class="course-skills">
+                                <p><strong>Skills learned:</strong></p>
+                                <ul>
+                                    {% for skill in course.skills %}
+                                    <li>{{ skill }}</li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                            {% endif %}
+                            {% if course.completion_date %}
+                            <p class="course-completion">
+                                <span class="badge bg-success"><i class="fas fa-check-circle"></i> Completed: {{ course.completion_date }}</span>
+                            </p>
+                            {% endif %}
+                            {% if course.url %}
+                            <a href="{{ course.url }}" target="_blank" class="btn btn-primary btn-sm">View Course</a>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+    
+    <section class="courses-section mb-5">
+        <div class="container">
+            <h2 class="text-center mb-4"><i class="fas fa-certificate text-info"></i> Other Courses and Certifications</h2>
+            <div class="row">
+                {% for course in other_courses %}
+                <div class="col-md-4 mb-4">
+                    <div class="course-card h-100">
+                        <div class="course-header">
+                            <h3 class="course-title">{{ course.title }}</h3>
+                            <p class="course-instructor">{{ course.provider }}</p>
+                        </div>
+                        <div class="course-content">
+                            <p class="course-description">{{ course.description }}</p>
+                            {% if course.skills %}
+                            <div class="course-skills">
+                                <p><strong>Skills learned:</strong></p>
+                                <ul>
+                                    {% for skill in course.skills %}
+                                    <li>{{ skill }}</li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                            {% endif %}
+                            {% if course.completion_date %}
+                            <p class="course-completion">
+                                <span class="badge bg-success"><i class="fas fa-check-circle"></i> Completed: {{ course.completion_date }}</span>
+                            </p>
+                            {% endif %}
+                            {% if course.url %}
+                            <a href="{{ course.url }}" target="_blank" class="btn btn-primary btn-sm">View Certificate</a>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+{% endblock %}

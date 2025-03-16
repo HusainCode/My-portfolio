@@ -1,0 +1,203 @@
+{% extends "layout.html" %}
+
+{% block content %}
+    <section class="hero-section bg-dark text-white py-5">
+        <div class="container text-center">
+            <h2 class="display-4">Welcome to My Portfolio</h2>
+            <p>I am a passionate developer focused on creating meaningful and efficient solutions.</p>
+        </div>
+    </section>
+
+    <section class="about-section py-4" id="about">
+        <div class="container">
+            <h2 class="text-center mb-4">About Me</h2>
+            <div class="about-content">
+                <p>Hi, I'm Husain Alshaikhahmed. I'm a software engineer proficient in Python and C/C++, with experience in Java, JavaScript, C#, SQL, HTML, and CSS. I am also skilled in Linux and have a passion for coding. I am always eager to expand my skills and enjoy collaborating with other engineers to solve complex problems. I strive to add value to the world through my work and continuously learn from those who have more experience in the field.</p>
+
+                <h3>Education</h3>
+                <ul>
+                    <li><strong>2020-2022:</strong> Bachelor of Science in Computer Science, Texas State University</li>
+                    <li><strong>2020-2022:</strong> Minor in Business Administration, Texas State University</li>
+                </ul>
+
+                <h3>Certifications</h3>
+                <ul>
+                    <li><strong>2024:</strong> Linux Essentials, Linux Professional Institute</li>
+                    <li><strong>2024:</strong> Azure Data Fundamentals, Microsoft</li>
+                    <li><strong>2021:</strong> Blockchain Expert, Blockchain Council</li>
+                </ul>
+
+                <h3>Experience</h3>
+                <ul>
+                    <li><strong>2021-2022:</strong> Tech Support Engineer, Eagle Eye Networks</li>
+                    <li><strong>2021-2022:</strong> Software Application Developer Intern, Texas State University</li>
+                    <li><strong>2020-2021:</strong> Undergraduate Research Assistant, Texas State University</li>
+                    <li><strong>2019-2020:</strong> Software Engineer Intern, Nesma</li>
+                </ul>
+
+                <h3>Skills</h3>
+                <ul>
+                    <li><strong>Programming Languages:</strong> Python, C/C++, Java, JavaScript, C#</li>
+                    <li><strong>Web Technologies:</strong> HTML, CSS, SQL</li>
+                    <li><strong>Operating Systems:</strong> Linux</li>
+                    <li><strong>Tools and Platforms:</strong> Git, GitHub, Bootstrap, Django</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="projects-section py-4">
+        <div class="container">
+            <h2 class="text-center mb-4"><i class="fas fa-thumbtack text-danger"></i> Pinned Projects</h2>
+            <div class="row">
+                {% for project in projects %}
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h3 class="card-title">{{ project.name }}</h3>
+                            <p class="card-text">{{ project.description }}</p>
+                            <a href="{{ project.url }}" target="_blank" class="btn btn-primary">View Project</a>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonials-section py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center mb-4"><i class="fas fa-quote-left text-primary"></i> What People Say About Me</h2>
+            <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5000">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="testimonial-card">
+                            <div class="testimonial-content">
+                                <p class="testimonial-text">"His drive and passion for the field were evident in everything he did, whether it was tackling challenging coding assignments."</p>
+                                <p class="testimonial-author">- Rodolfo J. Galván Martínez</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="carousel-item">
+                        <div class="testimonial-card">
+                            <div class="testimonial-content">
+                                <p class="testimonial-text">"What truly sets Husain apart is his kindness and willingness to support others."</p>
+                                <p class="testimonial-author">- Sameera Raza</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="carousel-item">
+                        <div class="testimonial-card">
+                            <div class="testimonial-content">
+                                <p class="testimonial-text">"What truly sets Husain apart is his dedication to continuous learning and professional development."</p>
+                                <p class="testimonial-author">- Calvin Scharf</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="carousel-item">
+                        <div class="testimonial-card">
+                            <div class="testimonial-content">
+                                <p class="testimonial-text">"Husain exhibited reliability, professionalism, and a strong work ethic throughout our collaboration."</p>
+                                <p class="testimonial-author">- Faith Goddard</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="carousel-item">
+                        <div class="testimonial-card">
+                            <div class="testimonial-content">
+                                <p class="testimonial-text">"He consistently goes above and beyond to ensure project success, and his collaborative spirit makes him a joy to work with."</p>
+                                <p class="testimonial-author">- Mustafa Al Tuhaifa</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="carousel-item">
+                        <div class="testimonial-card">
+                            <div class="testimonial-content">
+                                <p class="testimonial-text">"He continuously goes above and beyond to ensure that his assignments are completed to the highest quality."</p>
+                                <p class="testimonial-author">- Ivy Doan</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="carousel-item">
+                        <div class="testimonial-card">
+                            <div class="testimonial-content">
+                                <p class="testimonial-text">"I wholeheartedly recommend Husain Alshaikhahmed for any position or endeavor he chooses to pursue."</p>
+                                <p class="testimonial-author">- Stephen Johnson</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="carousel-item">
+                        <div class="testimonial-card">
+                            <div class="testimonial-content">
+                                <p class="testimonial-text">"His ability to deescalate stressful situations and remain calm and pleasant is impressive."</p>
+                                <p class="testimonial-author">- Janel Laya</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="carousel-item">
+                        <div class="testimonial-card">
+                            <div class="testimonial-content">
+                                <p class="testimonial-text">"One of Husain's notable strengths is his commitment to customer service."</p>
+                                <p class="testimonial-author">- Dimitr Dimitrov</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="carousel-item">
+                        <div class="testimonial-card">
+                            <div class="testimonial-content">
+                                <p class="testimonial-text">"I've always put a premium on resourcefulness and readiness among my team members and Husain never failed to deliver."</p>
+                                <p class="testimonial-author">- Aroofa Mohammad</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="carousel-control-prev" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+
+            <div class="text-center mt-4">
+                <a href="{{ url_for('testimonials') }}" class="btn btn-primary">See All Testimonials</a>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="connect-section py-4">
+        <div class="container text-center">
+            <h2 class="mb-4">Connect With Me</h2>
+            <div class="social-links d-flex justify-content-center flex-wrap gap-2">
+                <a href="{{ social_links.github }}" target="_blank" class="btn github">
+                    <i class="fab fa-github"></i> GitHub
+                </a>
+                <a href="{{ social_links.linkedin }}" target="_blank" class="btn linkedin">
+                    <i class="fab fa-linkedin"></i> LinkedIn
+                </a>
+                <a href="{{ social_links.youtube }}" target="_blank" class="btn youtube">
+                    <i class="fab fa-youtube"></i> YouTube
+                </a>
+                {% if social_links.hackerrank %}
+                <a href="{{ social_links.hackerrank }}" target="_blank" class="btn hackerrank">
+                    <i class="fas fa-h-square"></i> HackerRank
+                </a>
+                {% endif %}
+            </div>
+        </div>
+    </section>
+{% endblock %}
