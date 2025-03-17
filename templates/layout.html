@@ -61,5 +61,40 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Custom JS -->
     <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+    <!-- Modal popup -->
+    <div class="modal fade" id="constructionModal" tabindex="-1" aria-labelledby="constructionModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header bg-warning">
+                    <h5 class="modal-title" id="constructionModalLabel">Notice</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Please note: This website is still under construction. Some of the data you see here are just
+                        prototypes.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">OK</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Check if the modal has been shown already during this session
+            if (!sessionStorage.getItem('modalShown')) {
+                var constructionModal = new bootstrap.Modal(document.getElementById('constructionModal'));
+                setTimeout(function () {
+                    constructionModal.show();
+                    // Mark that the modal has been shown
+                    sessionStorage.setItem('modalShown', 'true');
+                }, 500);
+            }
+        });
+    </script>
+
 </body>
 </html>
