@@ -4,7 +4,7 @@
 <section class="url-checker-section py-5">
     <div class="container">
         <div class="row">
-            <!-- Sample URLs - Now on the left -->
+            <!-- Sample URLs -->
             <div class="col-md-5">
                 <div class="card shadow mb-4">
                     <div class="card-header bg-secondary text-white">
@@ -46,7 +46,7 @@
                 </div>
             </div>
 
-            <!-- URL Checker Form - Now on the right -->
+            <!-- URL Checker Form -->
             <div class="col-md-7">
                 <div class="card shadow">
                     <div class="card-header bg-primary text-white">
@@ -111,24 +111,24 @@ document.addEventListener('DOMContentLoaded', function() {
     const detailsList = document.getElementById('detailsList');
     const sampleUrlLinks = document.querySelectorAll('.sample-url-link');
 
-    // Handle main form submission
+
     form.addEventListener('submit', function(e) {
         e.preventDefault();
 
         const url = urlInput.value.trim();
         if (!url) return;
 
-        // Show loading indicator
+
         loadingIndicator.classList.remove('d-none');
         resultContainer.classList.add('d-none');
 
-        // Simulate API call (replace this with actual API call to your backend)
+
         setTimeout(() => {
             checkUrl(url);
         }, 1500);
     });
 
-    // Handle sample URL links
+
     sampleUrlLinks.forEach(link => {
         link.addEventListener('click', function(e) {
             e.preventDefault();
@@ -136,13 +136,13 @@ document.addEventListener('DOMContentLoaded', function() {
             const url = this.getAttribute('data-url');
             const resultBadge = this.parentElement.querySelector('.result-badge');
 
-            // Clear previous results
+
             resultBadge.innerHTML = '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>';
 
-            // Fill the form input with this URL
+
             urlInput.value = url;
 
-            // Simulate API call for the sample URL
+
             setTimeout(() => {
                 const isSafe = checkUrlSafety(url);
 
@@ -163,7 +163,7 @@ document.addEventListener('DOMContentLoaded', function() {
         } else {
             showResult(url, false, "DANGER! TAKE CAUTION! This URL may be malicious.");
 
-            // Add some example threats
+
             const threatTypes = [
                 "MALWARE",
                 "SOCIAL_ENGINEERING",
@@ -175,30 +175,24 @@ document.addEventListener('DOMContentLoaded', function() {
             addThreatDetails(randomThreat, "This URL has been flagged for potentially malicious content.");
         }
 
-        // Hide loading indicator
+
         loadingIndicator.classList.add('d-none');
     }
 
     function checkUrlSafety(url) {
-        // This is a simulation function that determines if a URL is safe
-        // In a real implementation, you would call your backend API
 
-        // For demonstration, we'll consider known safe domains as safe
         const safeDomains = ['google.com', 'example.com', 'amazon.com', 'microsoft.com'];
         const domain = url.toLowerCase().replace(/^https?:\/\//, '').replace(/\/.*$/, '');
 
-        // Check if the domain is in our safe list
         if (safeDomains.some(safe => domain.includes(safe))) {
             return true;
         }
 
-        // For demonstration, we'll consider specific "malicious" test domains as unsafe
         const unsafeDomains = ['malware-test.com', 'phishing-example.net', 'suspicious-site.org'];
         if (unsafeDomains.some(unsafe => domain.includes(unsafe))) {
             return false;
         }
 
-        // For any other domain, randomly decide (30% chance of being unsafe)
         return Math.random() > 0.3;
     }
 
