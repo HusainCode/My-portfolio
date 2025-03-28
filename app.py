@@ -7,8 +7,9 @@ def get_projects():
     return [
         {
             'name': 'Threat Detection URL Checker',
-            'url': 'https://github.com/HusainCode/Threat-Detection-URL-Checker',
-            'description': 'A tool that checks URLs for potential security threats.'
+            'url': '/projects/url-checker',
+            'description': 'A tool that checks URLs for potential security threats using the Google Safe Browsing API.',
+            'github': 'https://github.com/HusainCode/Threat-Detection-URL-Checker'
         },
         {
             'name': 'Simple GoLang Calculator',
@@ -274,6 +275,12 @@ def courses():
                            projects=projects,
                            udemy_courses=udemy_courses,
                            other_courses=other_courses)
+
+
+@app.route('/projects/url-checker')
+def url_checker():
+    projects = get_projects()  # For the navbar
+    return render_template('url_checker.html', projects=projects)
 
 
 if __name__ == '__main__':
